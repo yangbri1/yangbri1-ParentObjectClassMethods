@@ -59,13 +59,37 @@
  * like toString, equals, constructors, getters, setters, if you can find the menu to do so.
  */
 public class SampleClass {
+    // 'SampleClass' variable declarations
     public int a;
     public boolean b;
 
     //    implement a custom .equals(SampleClass other){} method here.
-
+    // this overrides 'Object' class built-in .equals() method which compares memory addresses of two objs to ...
+    public boolean equals(SampleClass other){
+        // return true if the values of instance fields 'a' and 'b' are equal to their respective SampleClass other 'a' & 'b'
+        if((this.a == other.a) && (this.b == other.b)){
+            return true;
+        }
+        // otherwise return false
+        else{
+            return false;
+        }
+    }
 
     //    implement a custom .toString(){} method here.
+    public String toString(){
+        // type-casting instance field 'a' from 'int' to "String" data type using String.valueOf() method
+        String a_toString = String.valueOf(a);
 
+        // String concatenation to convert instance field 'b' (boolean) to "String" type
+        String b_toString = "" + b;
+
+        // https://stackoverflow.com/questions/12361492/how-to-determine-the-primitive-type-of-a-primitive-variable
+        // Aside: On how to retrieve data type of a primitive -- short answer can't directly, need to use boxed type (Object) to wrap & then can .getClass().getSimpleName()
+        
+        // return instance fields as String type
+        return(a_toString + b_toString); 
+         
+    }
     
 }
